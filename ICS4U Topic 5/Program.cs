@@ -275,8 +275,20 @@ namespace ICS4U_Topic_5
 
         public static void Hurricane() 
         {
+            bool finish = false;
+            int category = 0;
 
-        
+            while (!finish)
+            {
+                Console.Clear();
+                Console.WriteLine("Hurricane");
+                Console.WriteLine();
+                Console.WriteLine("Input category : ");
+
+
+
+            }
+
         }
     }
 }
