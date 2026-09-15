@@ -49,11 +49,15 @@ namespace ICS4U_Topic_5
                 }
                 else if (menuInput == "2")
                 {
-
+                    Console.Clear();
+                    ParkingGarage();
+                    Console.Clear();
                 }
                 else if (menuInput == "3")
                 {
-                
+                    Console.Clear();
+                    Hurricane();
+                    Console.Clear();
                 }
                 else
                 {
@@ -207,26 +211,72 @@ namespace ICS4U_Topic_5
         {
             bool finish = false;
 
-            int time = 0;
+            double time = 0;
 
             double price = 4.00;
             double priceAditional = 2.00;
             double priceMax = 20.00;
 
+            double moneyOwed = 0.0;
+
 
             while (!finish)
             {
+                Console.Clear();
                 Console.WriteLine("Parking Garage");
                 Console.WriteLine();
                 Console.WriteLine("Input time parked (minutes) : ");
 
-                if (Int32.TryParse(Console.ReadLine(), out time))
+                if (double.TryParse(Console.ReadLine(), out time))
                 {
                     time = time / 60;
 
-                    Console.WriteLine(price + (time * priceAditional));
+                    time = Math.Ceiling(time);
+
+                    if (time <= 1)
+                    {
+                        moneyOwed = price;
+                    }
+                    else if (time > 1)
+                    {
+                        moneyOwed = (price) + (time - 1) * priceAditional;
+                    }
+
+                    if (moneyOwed >= 20)
+                    {
+                        moneyOwed = priceMax;
+
+                        Console.WriteLine($"You owe the maximum amount of money, ${moneyOwed}.");
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"You owe ${moneyOwed}.");
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                    }
                 }
+                else 
+                {
+                    Console.Clear();
+                    Console.WriteLine("Error");
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+                
+                }
+
+                finish = true;
+
             }
+        }
+
+        public static void Hurricane() 
+        {
+
+        
         }
     }
 }
