@@ -278,8 +278,6 @@ namespace ICS4U_Topic_5
             bool finish = false;
             int category = 0;
 
-            double speed = 0;
-
             while (!finish)
             {
                 Console.Clear();
@@ -287,29 +285,29 @@ namespace ICS4U_Topic_5
                 Console.WriteLine();
                 Console.WriteLine("Input category : ");
 
-                switch (category)
-                {
-                    case 1:
-                        Console.WriteLine("Category 1: 74-95 mph or 64-82 kt or 119-153 km/hr");
-                        break;
-                    case 2:
-                        Console.WriteLine("Category 2: 96-110 mph or 83-95 kt or 154-177 km/hr");
-                        break;
-                    case 3: 
-                        Console.WriteLine("Category 3: 111-130 mph or 96-113 kt or 178-209 km/hr");
-                        break;
-                    case 4:
-                        Console.WriteLine("Category 4: 131-155 mph or 114-135 kt or 210-149 km/hr");
-                        break;
-                    case 5:
-                        Console.WriteLine("Category 5: greater than 155 mph or 135 kt or 249 km/hr");
-                        break;
-                }
+                
 
 
                 if (Int32.TryParse(Console.ReadLine(), out category) && category <= 5 && category > 0)
                 {
-                    Console.WriteLine(category);
+                    switch (category)
+                    {
+                        case 1:
+                            Console.WriteLine("Category 1: 74-95 mph or 64-82 kt or 119-153 km/hr");
+                            break;
+                        case 2:
+                            Console.WriteLine("Category 2: 96-110 mph or 83-95 kt or 154-177 km/hr");
+                            break;
+                        case 3:
+                            Console.WriteLine("Category 3: 111-130 mph or 96-113 kt or 178-209 km/hr");
+                            break;
+                        case 4:
+                            Console.WriteLine("Category 4: 131-155 mph or 114-135 kt or 210-149 km/hr");
+                            break;
+                        case 5:
+                            Console.WriteLine("Category 5: greater than 155 mph or 135 kt or 249 km/hr");
+                            break;
+                    }
 
                     Console.WriteLine();
 
@@ -321,7 +319,7 @@ namespace ICS4U_Topic_5
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Error");
+                    Console.WriteLine("Error - Input Category 1-5");
                     Console.WriteLine("Press any key to continue");
                     Console.ReadKey();
 
