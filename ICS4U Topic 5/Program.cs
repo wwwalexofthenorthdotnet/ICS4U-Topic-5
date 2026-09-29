@@ -214,7 +214,7 @@ namespace ICS4U_Topic_5
             double time = 0;
 
             double price = 4.00;
-            double priceAditional = 2.00;
+            double priceAdditional = 2.00;
             double priceMax = 20.00;
 
             double moneyOwed = 0.0;
@@ -229,17 +229,27 @@ namespace ICS4U_Topic_5
 
                 if (double.TryParse(Console.ReadLine(), out time))
                 {
+                    if (time < 0)
+                        time = 0;
+
                     time = time / 60;
 
                     time = Math.Ceiling(time);
 
-                    if (time <= 1)
+
+
+                    if (time <= 1 && time > 0)
                     {
                         moneyOwed = price;
                     }
                     else if (time > 1)
                     {
-                        moneyOwed = (price) + (time - 1) * priceAditional;
+                        moneyOwed = (price) + (time - 1) * priceAdditional;
+                    }
+                    else if (time <= 0)
+                    {
+                        moneyOwed = 0;
+
                     }
 
                     if (moneyOwed >= 20)
